@@ -9,6 +9,9 @@ def main():
 
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    clock = pygame.time.Clock()
+    dt = 0
+
     while True:
         screen.fill((0, 0, 0))  # Fill the screen with black
 
@@ -17,6 +20,9 @@ def main():
                 pygame.quit()
                 return
                 
+        delta_time = clock.tick(FPS)  # Limit the frame rate
+        dt = delta_time / 1000  # Convert milliseconds to seconds
+
         pygame.display.flip()  # Update the display
 
 
